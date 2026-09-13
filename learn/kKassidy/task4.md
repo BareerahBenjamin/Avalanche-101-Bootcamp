@@ -92,6 +92,16 @@ Derivatives / Perpetuals
 
 ```
 
+在这个发展过程中，每个阶段也出现了具有代表性的 DeFi 协议：
+
+- DEX / Swap：Uniswap、Trader Joe（LFJ）
+  Uniswap 推动了 AMM 模式的普及，让用户不需要传统订单簿也可以通过流动性池完成链上交易。Trader Joe（现 LFJ）则是 Avalanche 生态中具有代表性的 DEX，我在 Task 3 中实际使用了它的流动性池，为 ABT/TUSD 创建交易对并获取链上价格。
+
+- Lending：Aave
+  Aave 将传统借贷中的资金池、抵押、利率和清算机制搬到智能合约中。用户可以向资金池存入资产获得收益，也可以通过超额抵押借出其他资产，协议通过 LTV、Health Factor 和清算机制控制风险。
+
+- Derivatives / Perpetuals：GMX、dYdX
+  GMX 和 dYdX 代表了 DeFi 从现货交易进一步发展到杠杆和衍生品交易。用户可以使用保证金建立多头或空头仓位，而协议需要通过 Oracle、保证金率、PnL、Funding Rate 和清算机制管理仓位风险。
 
 
 DEX 解决的是资产交换和流动性问题。
