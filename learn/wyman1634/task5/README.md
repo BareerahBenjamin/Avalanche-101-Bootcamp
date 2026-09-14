@@ -65,16 +65,16 @@ yarn next:build
 
 ### 合约部署成功与区块浏览器
 
-![GreenGridEnergyToken deployed on Avalanche Fuji](screenshots/01-contract-deployment.png)
+![GreenGridEnergyToken deployed on Avalanche Fuji](screenshots/01-contract-deployment.jpg)
 
 ### Token 发行
 
-![Mint 1,000 GGSC](screenshots/02-mint.png)
+![Mint 1,000 GGSC](screenshots/02-mint.jpg)
 
 ### Token 转账
 
-![Transfer 200 GGSC](screenshots/03-transfer.png)
+![Transfer 200 GGSC](screenshots/03-transfer.jpg)
 
 ### Token 销毁
 
-![Burn 100 GGSC](screenshots/04-burn.png)
+![Burn 100 GGSC](screenshots/04-burn.jpg)
