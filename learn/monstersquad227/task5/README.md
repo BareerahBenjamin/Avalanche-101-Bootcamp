@@ -67,7 +67,7 @@
 
 ### 3.2 合约源码
 
-代码仓库路径：`./PropertyRentalToken.sol`
+代码仓库路径：`./contract/src/PropertyRentalToken.sol`
 
 ---
 
