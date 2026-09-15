@@ -39,10 +39,29 @@
 
 ## 3. Fuji 部署与链上交互
 
-- 合约地址：待 Fuji 钱包部署后补充
-- 部署交易：待 Fuji 钱包部署后补充
-- Snowtrace 链接：待 Fuji 钱包部署后补充
-- 部署、发行、转账、销毁截图：待完成真实测试网交互后补充
+- 网络：Avalanche Fuji C-Chain（Chain ID `43113`）
+- 合约地址：[`0x91593d888e23a07164d86fcdffc4c81f9fdebe67`](https://testnet.snowtrace.io/address/0x91593d888e23a07164d86fcdffc4c81f9fdebe67)
+- 部署交易：[`0x18af9fdb91241b45ef93da9e121f775d25e1637a39427a7705fabae0c81b270a`](https://testnet.snowtrace.io/tx/0x18af9fdb91241b45ef93da9e121f775d25e1637a39427a7705fabae0c81b270a)
+- 部署区块：`58381561`
+- 链上核验：交易状态 `0x1`，合约运行时代码 `3109` bytes
+
+### 链上操作与材料凭证
+
+1. **部署合约**
+   - 截图：[`deploy-success.png`](./deploy-success.png)
+   - 初始发行：1,000 ASYT 归属部署者
+2. **Token 发行 (Mint)**
+   - 交易：[`0xbfcf68934799eddc69cc226276b7e168fa6b569a938f04db56b51e00a936685b`](https://testnet.snowtrace.io/tx/0xbfcf68934799eddc69cc226276b7e168fa6b569a938f04db56b51e00a936685b)
+   - 行为：Authorized owner 增发 100 ASYT，总量从 1,000 变为 1,100 ASYT
+   - 截图：[`mint-success.png`](./mint-success.png)
+3. **Token 转账 (Transfer)**
+   - 交易：[`0x073358e6cde57d633fe74ff8de548bf81420049457cb5767f82661805896d5cf`](https://testnet.snowtrace.io/tx/0x073358e6cde57d633fe74ff8de548bf81420049457cb5767f82661805896d5cf)
+   - 行为：转账 1 ASYT 至不可用黑洞测试地址 `0x000...dEaD`
+   - 截图：[`transfer-success.png`](./transfer-success.png)
+4. **Token 销毁 (Burn)**
+   - 交易：[`0x7f99d33f81b47bd0b27c2bb36450a1a84a11ed924e1b71ed132ca6ce411e7c29`](https://testnet.snowtrace.io/tx/0x7f99d33f81b47bd0b27c2bb36450a1a84a11ed924e1b71ed132ca6ce411e7c29)
+   - 行为：销毁 10 ASYT，最终总供应量结算为 1,090 ASYT
+   - 截图：[`burn-success.png`](./burn-success.png)
 
 ## 4. 风险边界
 
