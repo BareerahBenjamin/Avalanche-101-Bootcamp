@@ -233,11 +233,7 @@ ERC-20 销毁事件显示向零地址转入 50 FCWR，链上总供应量因此�
 ## 9. 文件索引
 
 - `src/CoffeeWarehouseToken.sol`：ERC-20 仓单合约。
-- `test/CoffeeWarehouseToken.t.sol`：25 项测试，含 fuzz。
 - `script/DeployAndDemo.s.sol`：Fuji 部署与交互脚本。
 - `script/verify_onchain.py`：只读复查回执、历史余额、权限和源码字节码。
 - `docs/`：两版模拟资产证明。
 - `evidence/`：真实截图、测试日志、公开交易记录与源码验证结果。
-- `vendor/openzeppelin/`：官方 5.0.2 必要源码与 MIT 许可证。
-
-合约源码、测试、部署脚本、资产证明和截图均位于 `learn/BareerahBenjamin/task5/`，文中的链上数据对应同一部署实例。
