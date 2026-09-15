@@ -23,3 +23,9 @@
 | 14 | a13132136465 | 0x7dc5e761d50c7e985eef3772b192e215d904fa5e | #78 | 2026-09-13 12:29 |
 | 15 | BareerahBenjamin | 0xE83B1DCF8F9F3765DAbd34555f39240a14f5AcE9 | #79 | 2026-09-13 12:45 |
 | 16 | wyman1634 | 0x3cd247C0ebAb3D4702dB33250dA14D91AE79d430 | #87 | 2026-09-13 12:56 |
+
+## 优秀作业
+
+| 任务 | nickname | 钱包 | PR 编号 |
+| --- | --- | --- | ---: |
+| Task 4 | Lukeknow0 | 0x7c1569bf1384d6ffec460ac36b671c2998fdcffb | #45 |
