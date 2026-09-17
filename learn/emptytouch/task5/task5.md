@@ -96,7 +96,6 @@
 - Token 名称 / 符号：`Cotton Warehouse Receipt Token` / `CWRT`（decimals 18）
 - 合约名：`CottonWarehouseReceipt`
 - 源码位置：仓库 `https://github.com/emptytouch/cwrt-cotton-rwa` 下的 `src/CottonWarehouseReceipt.sol`
-  （本地路径：`D:\Web3\openbuild\Lesson5\cwrt-cotton-rwa`）
 - 技术栈：Foundry + solc 0.8.28 + OpenZeppelin Contracts v5.7.0
 
 最低要求逐条对应：
