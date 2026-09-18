@@ -7,23 +7,6 @@
 
 ---
 
-## 0. 提交要求逐项对照（快速索引）
-
-| #  | 任务要求                       | 在本文件的位置（📎 = 截图，与本文件同目录）                                                |
-| -- | -------------------------- | --------------------------------------------------------------------- |
-| 1  | 使用的 DEX 名称                | 第 1 节（Pangolin V2）+ 📎 `task3.6-emptytouch.png`（Swap 0.01 WAVAX For 992 DLK **On Pangolin**） |
-| 2  | Token A / Token B 名称及合约地址 | 第 2 节（名称）+ 第 6.2 节（链上地址：DLK 代理 / WAVAX）                          |
-| 3  | 交易对地址                    | 第 6.2 节（`0x59d0…3980`）+ 📎 `task3.1-emptytouch.png`（交易对页储备展开）             |
-| 4  | 添加流动性或创建交易对的截图          | 📎 `task3.1-emptytouch.png`（储备 199,007.9 DLK / 2.01 WAVAX）+ 📎 `task3.6-emptytouch.png`（建对后真实成交） |
-| 5  | 获取 Swap/Oracle 价格的核心代码    | 第 3 节（Router 报价 / Pair 现货 / TWAP 三通道）                                 |
-| 6  | 使用价格的合约核心代码               | 第 4 节（防砸盘税实时取预言机参考价）                                                  |
-| 7  | 部署后的合约地址                  | 第 6.2 节 + 📎 `task3.2-emptytouch.png`（代理）/ 📎 `task3.3-emptytouch.png`（预言机）    |
-| 8  | 区块浏览器链接                   | 第 6.2 节每行右侧 + 📎 `task3.4-emptytouch.png`（部署者全部交易）                  |
-| 9  | 成功读取或使用价格的截图              | 📎 `task3.5-emptytouch.png`（`oracle.update()` 交易 Success）+ 📎 `task3.6-emptytouch.png`（真实 swap 定价）+ 第 6.3 节 `cast call` 读值 |
-| 10 | 对实现过程的简要说明                | 第 7 节                                                                 |
-
----
-
 ## 1. 选择的 DEX
 
 **Pangolin V2（Avalanche Fuji 测试网）** —— 即 Uniswap V2 架构的分叉，原生提供 `Factory / Router / Pair` 三件套，价格可以直接从交易对储备与累积价读取，无需引入 Chainlink 等外部喂价。
@@ -46,10 +29,10 @@
 
 ## 2. Token A / Token B 与交易对
 
-| 角色             | 名称                     | 说明                                                            |
-| -------------- | ---------------------- | ------------------------------------------------------------- |
-| Token A（被定价代币） | **DLK**（DappLinkToken） | 本项目代币，6 位小数；本次任务修改的对象                                         |
-| Token B（报价资产）  | **WAVAX**              | 课件原设计用 `USDT`，在 Avalanche 上改用原生包装 AVAX 作报价资产（等价角色，无需去水龙头换稳定币） |
+| 角色 | 名称 | 合约地址 | 说明 |
+| --- | --- | --- | --- |
+| Token A（被定价代币） | **DLK**（DappLinkToken） | 代理 `0x2cBd382fC1EEdf34c25Ba3D0F952369D38CcbF4A`<br>逻辑 `0x7cf2120fcc08F79aD9c3Aa15725C4e5E0d353dF0` | 本项目代币，6 位小数；本次任务修改的对象 |
+| Token B（报价资产） | **WAVAX** | `0xd00ae08403B9bbb9124bB305C09058E32C39A48c`（Fuji 标准 WAVAX） | 课件原设计用 `USDT`，在 Avalanche 上改用原生包装 AVAX 作报价资产（等价角色，无需去水龙头换稳定币） |
 
 - **交易对**：`DLK / WAVAX`，由代币 `initialize()` 调用 `PangolinFactory.createPair(WAVAX, address(this))` **自动创建**，并记为 `mainPair`。
 - **流动性**：部署脚本通过 `PangolinRouter.addLiquidityAVAX` 注入（默认 `200_000 DLK + 2 AVAX`），见第 6 节。
@@ -215,38 +198,6 @@ function updateChoPrice() external returns (uint256 price) {
   - 制造真实跌价后：TWAP 参考价 == 窗口内高价（精确相等），跌幅 1977 基点 → 触发 20% 防砸盘税（`1,940,000,000`）
   - 一笔**真实卖出转账**中，链上 `downsideTax` 记录与 `previewSell` **完全一致** → 税真的被执行
 
-### 5.2 部署脚本在 Fuji 分叉上的实跑取证（anvil 分叉自真实 Fuji）
-
-> 以下为本机 `anvil --fork-url fuji` 副本上跑通部署脚本后的真实读值（证明整条部署/取价链路正确；真实 Fuji 地址见第 6 节）。
-
-**创建交易对 + 注入流动性**（部署日志节选）：
-
-```
-mainPair (DLK/WAVAX): 0x0673d6B8858f531393864F65A4f2B042e7264
-reserve0: 200000000000          (200_000 DLK)
-reserve1: 2000000000000000000   (2 WAVAX)
-```
-
-**成功读取价格（来自 DEX，非写死）**：
-
-```
-token.currentPrice()        : 9969950299797      ← 1e6 DLK 经 Router 换出的 WAVAX-wei（含 0.3% 费）
-oracle.quoteViaRouter       : 9969950299797      ← 与 currentPrice 完全相同 ✅
-oracle.spotPrice (1e18 raw) : 10000000000000000000000000   (=1e25)
-oracle.spotHumanPrice1e18   : 10000000000000     ← 1 DLK = 1e-5 WAVAX ≈ $0.0002
-token.oracleReferencePrice  : 9969950299797
-  fromTwap (false=Router回退): false             ← 新池无 TWAP 历史，如实回退 Router
-```
-
-**播种 TWAP**（部署后隔 600s 并做一笔真实成交，再 `oracle.update()`）：
-
-```
-oracle.update() 得到的 TWAP : 10000000000000000000000000   (=1e25，与现货价一致)
-reference price after       : 10000000000000
-  fromTwap after? (true=TWAP): true            ← TWAP 接管 ✅
-lastReferenceFromTwap       : true
-```
-
 ---
 
 ## 6. 部署到 Fuji 测试网
@@ -380,7 +331,7 @@ cast call 0x59d05Df8f9B9F5Adeaa21799b7F08d87e16A3980 'getReserves()(uint112,uint
 3. **改代币**：`getDeclineTaxRate` 改为每次实时向预言机取参考价；原作者 `// todo: 最佳的方式是用预言机的价格` 落地；`USDT` 字段改名 `quoteToken`（Fuji 用 WAVAX）；新增 `currentPrice / oracleReferencePrice / previewSell / setPriceOracle`。
 4. **测试**：编写 Fuji 分叉测试（6+3 项），证明价格来自 DEX 且真实驱动防砸盘税。
 5. **部署脚本**：`DeployDappLinkDex.s.sol` 一条龙完成代理+建对+加流动性+预言机绑定+开关；`SyncOraclePrice.s.sol` 用于播种 TWAP。
-6. **验证**：脚本在本机 Fuji 分叉副本实跑通过，价格读值、TWAP 切换均符合预期。
+6. **验证**：部署到真实 Fuji 后，用 `cast call` 直读合约验证价格读值、TWAP 切换均符合预期（见 6.3）。
 
 ### 注意事项（踩坑记录）
 
