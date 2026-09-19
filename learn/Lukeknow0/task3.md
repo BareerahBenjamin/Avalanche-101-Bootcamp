@@ -106,9 +106,9 @@ function buy(uint256 paymentIn, uint256 minTokenOut) external returns (uint256 t
 
 ### 6.2 实际购买业务验证
 - 初始持有人先授权 `50,000 dpAVLT`，付款账户先授权 `1,000 AVLT` 给部署合约。
-- 调用 `buy(10 ether, 0)` 成功完成真实链上付款和交割；交易回执 `status = 1`，并发出 `Purchased(buyer, 10 AVLT, 0.001 dpAVLT)` 事件。
+- 调用 `buy(10 ether, 0)` 成功执行链上付款与交割逻辑；交易回执 `status = 1`，并发出 `Purchased(buyer, 10 AVLT, 0.001 dpAVLT)` 事件。
 - 购买交易：[`0x6dc1cc61c7004672e2ad7fe44d25bec1bf665e6586dfd5f73188f15e53551492`](https://testnet.snowtrace.io/tx/0x6dc1cc61c7004672e2ad7fe44d25bec1bf665e6586dfd5f73188f15e53551492)（区块 `58,485,828`）。
-- 本次购买者与 `initialHolder` 是同一地址，因此 dpAVLT 的转出与转入抵消；以交易回执、剩余授权量和 `Purchased` 事件作为业务完成凭据。
+- 本次购买者与 `initialHolder` 是同一地址，因此 AVLT 付款转账和 dpAVLT 交割转账均为同地址转账，净余额不变；以交易回执、减少后的授权量和 `Purchased` 事件作为业务完成凭据。
 ![购买交易凭据](./task3-Lukeknow0-buy.png)
 
 ---
