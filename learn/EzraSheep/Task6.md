@@ -118,6 +118,7 @@ Kite Platform 的相关新功能尚未正式对外发布，本任务通过 **Dev
 ## 作业截图
 ![log in ](./task6-logined.png)
 ![Receive usdc](./task6-faucet.png)
+![added passkey](./task6-add-passkey.png)
 ![agent propose ](./task6-propose.png)
 ![agent propose](./task6-propose1.png)
 ![Recruiting agent](./task6-recruit.png)
