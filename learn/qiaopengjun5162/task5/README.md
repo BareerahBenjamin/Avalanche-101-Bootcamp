@@ -178,3 +178,8 @@ contract GoldCertificateToken is ERC20, Ownable {
     }
 }
 ```
+
+### 合约验证总览卡片
+![合约验证总览卡片](task5-contract-card.png)
+
+链上实时数据快照：totalSupply=500 GCT，deployer=400 GCT，0xdead=100 GCT，4 笔核心交易完整生命周期。
