@@ -123,3 +123,9 @@
 | Task 3 | emptytouch | `0x9e610cd701472bf7c815a6404b6ff88d81838c91` | #116 | 2026-09-19 03:13 | 5u |
 | Task 4 | Lukeknow0 | `0x7c1569bf1384d6ffec460ac36b671c2998fdcffb` | #45 | 2026-09-07 10:51 | 5u |
 | Task 4 | RoooyHe | `0xdd41194559d0de107cec2efbd25f38ea57d66fb1` | #46 | 2026-09-07 13:16 | 5u |
+
+## 优秀笔记奖
+| 昵称 | 钱包地址 | 笔记地址 | 获奖金额 |
+| --- | --- | --- | ---: |
+| Paxon | 待填写 | https://mp.weixin.qq.com/s/26vIzKbWcXZ81Z7DsSsf8A | 5u |
+| AAA蔬菜批发赵哥 | 待填写 | https://mp.weixin.qq.com/s/XTCUA5QU0Zj3ryT0glN0iw | 5u |
