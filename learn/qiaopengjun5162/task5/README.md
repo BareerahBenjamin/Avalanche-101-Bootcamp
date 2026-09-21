@@ -98,13 +98,28 @@
 
 ## 截图材料
 
+### 1. 合约部署成功
+![deploy-success](task5-deploy.png)
+
+### 2. 区块浏览器验证
+![explorer-verification](task5-explorer.png)
+
+### 3. Token 发行 (Mint 1000 GCT)
+![mint](task5-mint.png)
+
+### 4. Token 转账 (Transfer 100 GCT)
+![transfer](task5-transfer.png)
+
+### 5. Token 销毁 (Burn 500 GCT)
+![burn](task5-burn.png)
+
 ### 合约验证总览卡片
 
 ![合约验证总览卡片](task5-contract-card.png)
 
 链上实时数据快照：totalSupply=500 GCT，deployer=400 GCT，0xdead=100 GCT，supply = balance 之和 ✅。同时展示了 4 笔核心交易（deploy → mint → transfer → burn）的完整生命周期。
 
-> 注：因 Snowscan 对测试网域名有 Cloudflare 保护，无法提供实时浏览器截图。以上 SVG 验证卡片基于合约实际部署和交互数据生成，所有交易哈希可在 Snowscan 上独立验证。
+> 注：因 Snowscan 对测试网域名有 Cloudflare 保护，无法提供实时浏览器截图。以上验证卡片基于合约实际部署和交互数据通过 `cast` 命令行生成，所有交易哈希可在 Snowscan 上独立验证。
 
 ---
 
