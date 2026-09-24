@@ -2,7 +2,6 @@
 
 > 时间均为香港时间（UTC+8）。  
 > 作业完成奖：每个 Task 3u；优秀作业：每个 Task 5u。  
-> 同一 Task 中相同参与者的重复条目已合并为一条。
 
 ## 作业完成奖
 
@@ -157,9 +156,8 @@
 | Task 4 | RoooyHe | `0xdd41194559d0de107cec2efbd25f38ea57d66fb1` | #46 | 2026-09-07 13:16 | 5u |
 | Task 5 | a13132136465 | `0x7dc5e761d50c7e985eef3772b192e215d904fa5e` | #104 | 2026-09-16 13:37 | 5u |
 | Task 5 | BareerahBenjamin | `0xE83B1DCF8F9F3765DAbd34555f39240a14f5AcE9` | #105 | 2026-09-16 18:13 | 5u |
+| Task 5 | emptytouch | `0x9e610cd701472bf7c815a6404b6ff88d81838c91` | #114 | 2026-09-18 04:19 | 5u |
 | Task 6 | BareerahBenjamin | `0xE83B1DCF8F9F3765DAbd34555f39240a14f5AcE9` | #105 | 2026-09-16 18:13 | 5u |
-
-> 老师名单中 `emptytouch` 标注为 Task 5 优秀作业候补，暂未计入优秀作业奖。
 
 ## 优秀笔记奖
 | 昵称 | 钱包地址 | 笔记地址 | 获奖金额 |
